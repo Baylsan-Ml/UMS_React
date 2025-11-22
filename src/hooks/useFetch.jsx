@@ -9,6 +9,7 @@ export default function useFetch(path) {
     const getData=  async()=>{
     try{
       const response= await axios.get(`${import.meta.env.VITE_BURL}/${path}`);
+      console.log(response.data);
       setData(response.data);
     }
     catch (error){
