@@ -8,6 +8,18 @@ export default function Users() {
 
   const {data, isLoading, isError}= useFetch('users');
 
+  const deleteUser= async(id)=>{
+    alert(id);
+    try{
+      const response=await axios.delete(`${import.meta.env.VITE_BURL}/users/${id}`);
+      console.log(response);
+    }catch(err){
+      console.log(err.message);
+    }finally{
+
+    }
+  }
+
   /* if(isError){
     return <div className='text-danger'>{isError}</div>
   } */
@@ -33,7 +45,8 @@ export default function Users() {
          {/*  <td>{user.email}</td>
           <td><img src= {user.imageUrl} alt="" /></td> */}
           <td>
-            <Link className='btn btn-outline-info' to={`/Users/${user.id}`} element={<User />}>Details</Link>
+            <Link className='btn btn-outline-info' to={`/Users/${user.id}`} >Details</Link>
+            <button className='btn btn-outline-danger' onClick={()=>deleteUser(user.id)} >Delete</button>
           </td>
         </tr>
       )
