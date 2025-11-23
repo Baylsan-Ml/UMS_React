@@ -3,16 +3,34 @@ import React, { useEffect, useState } from 'react'
 import useFetch from "../../hooks/useFetch";
 import User from './User';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Users() {
 
   const {data, isLoading, isError}= useFetch('users');
 
   const deleteUser= async(id)=>{
-    alert(id);
+    
     try{
       const response=await axios.delete(`${import.meta.env.VITE_BURL}/users/${id}`);
       console.log(response);
+
+      if(response.status==200){
+        toast.success('🦄 User Deleted Successfully!', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Slide,
+});
+      }
+
+
+
     }catch(err){
       console.log(err.message);
     }finally{
