@@ -16,7 +16,8 @@ export default function Users() {
       console.log(response);
 
       if(response.status==200){
-        toast.success('🦄 User Deleted Successfully!', {
+        alert('done!');
+        /* toast.success('🦄 User Deleted Successfully!', {
 position: "top-center",
 autoClose: 5000,
 hideProgressBar: false,
@@ -26,7 +27,7 @@ draggable: true,
 progress: undefined,
 theme: "light",
 transition: Slide,
-});
+}); */
       }
 
 

@@ -27,12 +27,12 @@ export default function Navbar() {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={'/Users'}>
+          <Link className="nav-link" to={'/users'}>
             Users
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to={'/Users/AddUser'}>
+          <Link className="nav-link" to={'/users/addUser'}>
             Add Use
           </Link>
         </li>

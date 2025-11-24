@@ -15,10 +15,10 @@ export default function App() {
     <Navbar />
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='Users' element={<Users />} />
-      <Route path='Users/:id' element={<User />} />
-      <Route path='Users/AddUser' element={<AddUser />} />
-      <Route path='Register' element={<Register />} />
+      <Route path='users' element={<Users />} />
+      <Route path='users/:id' element={<User />} />
+      <Route path='users/addUser' element={<AddUser />} />
+      <Route path='register' element={<Register />} />
     </Routes>
     <Footer /> 
     </>
