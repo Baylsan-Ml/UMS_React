@@ -6,8 +6,11 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function Users() {
+   
+  const [page, setPage]=useState(1);
+  const {data, isLoading, isError}= useFetch(`users?limit=5&skip=${(page-1) * 5}`, [page]);
 
-  const {data, isLoading, isError}= useFetch('users');
+   const numberOfPages= Math.ceil((data.totalCount) / 5);
 
   const deleteUser= async(id)=>{
     
@@ -45,6 +48,15 @@ transition: Slide,
   if(isLoading){
     return <h2>wait..</h2>
   }
+
+  const pageItems=[];
+  for(let i=1; i<=numberOfPages; i++){
+    pageItems.push(
+      <li className='page-item'>
+        <button className='page-link' onClick={()=>setPage(i)}>{i}</button>
+      </li>
+    )
+  }
   return (
     <>
       <table className='table text-center'>
@@ -72,6 +84,16 @@ transition: Slide,
     }
         </tbody>
       </table>
+
+      <ul className='pagination d-flex justify-content-center'>
+        <li className='page-item'>
+          <button className='page-link' disabled={page==1} onClick={()=>setPage(page-1)}>Previous</button>
+        </li>
+        {pageItems}
+        <li className='page-item'>
+          <button className='page-link' disabled={page==numberOfPages} onClick={()=>setPage(page+1)}>Next</button>
+        </li>
+      </ul>
     </>
   )
 }

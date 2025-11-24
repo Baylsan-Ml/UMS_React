@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-export default function useFetch(path) {
+export default function useFetch(path , deps=[]) {
     const [data, setData]= useState({});
     const [isLoading,setIsLoading]=useState(true);
     const [isError, setIsError]=useState(' ');
@@ -21,7 +21,7 @@ export default function useFetch(path) {
   }
   useEffect( ()=>{
     getData();
-  }, []);
+  }, deps);
 
   return {data, isLoading, isError}
 }
