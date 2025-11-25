@@ -42,9 +42,9 @@ transition: Slide,
     }
   }
 
-  /* if(isError){
+  if(isError){
     return <div className='text-danger'>{isError}</div>
-  } */
+  }
   if(isLoading){
     return <h2>wait..</h2>
   }
