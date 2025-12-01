@@ -32,9 +32,6 @@ theme: "light",
 transition: Slide,
 }); */
       }
-
-
-
     }catch(err){
       console.log(err.message);
     }finally{

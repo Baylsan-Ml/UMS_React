@@ -8,9 +8,9 @@ export default function User() {
   const {data, isLoading, isError}= useFetch(`users/${id}`);
 
 
-  /* if(isError){
+  if(isError){
     return <div className='text-danger'>{isError}</div>
-  } */
+  }
   if(isLoading){
     return <h2>wait..</h2>
   }
